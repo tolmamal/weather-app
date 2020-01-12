@@ -1,0 +1,23 @@
+.navbar-container {
+    padding: 20px 0 20px 0;
+    margin-bottom: 30px;
+    /*background: var(--blue);*/
+}
+
+
+.first-item {
+    margin-left: 50px;
+
+}
+
+.second-item {
+    margin-left: 50px;
+}
+
+.active {
+    color: black;
+}
+
+.active:hover {
+    color: blueviolet;
+}
