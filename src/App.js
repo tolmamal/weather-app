@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from './components/home/Home';
 import WeatherNavbar from './components/navbar/WeatherNavbar';
 import Favorites from './components/favorites/favorites';
 import './App.css';
 import './assets/style/colors.css';
+
+import { weeklyForecastEndpoint, autoCompleteSearchEndpoint, currentWeatherEndpoint, geoLocationEndpoint } from './assets/AccuWeatherFunctions';
+import { createWeatherObject } from './assets/createWeatherObject';
+
+/* STORE */
+
+
 
 /* Stylesheets */
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
@@ -14,9 +21,10 @@ function AppRouter() {
         <Router>
             <div className="app-container">
                 <WeatherNavbar/>
+
                 <Switch>
-                    <Route path="/" exact component={Home}/>
-                    <Route path="/favorites" component={Favorites}/>
+                <Route path="/" exact component={Home}/>
+                <Route path="/favorites" component={Favorites}/>
                 </Switch>
 
             </div>
@@ -27,6 +35,7 @@ function AppRouter() {
 
 
 class App extends Component {
+
     render() {
         return (
             <div className="App">
@@ -37,6 +46,8 @@ class App extends Component {
         )
     }
 
+
 }
+
 
 export default App;
