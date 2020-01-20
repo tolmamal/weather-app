@@ -7,10 +7,18 @@
 //
 // export default fetchWeatherObject;
 
-import {geoLocationEndpoint, getGeoLocationEndpoint, weeklyForecastEndpoint} from "../../assets/AccuWeatherFunctions";
+import {
+    autoCompleteSearchEndpoint,
+    geoLocationEndpoint,
+    getGeoLocationEndpoint,
+    weeklyForecastEndpoint
+} from "../../assets/AccuWeatherFunctions";
 import axios from "axios";
+import {autoCompleteResults, weeklyForecastObject} from "../../mockData";
 
 export const SAVE_WEEKLY_FORECAST = "HOME_PAGE@SAVE_WEEKLY_FORECAST";
+export const SAVE_AUTOCOMPLETE_RESULTS = "HOME_PAGE@SAVE_AUTOCOMPLETE_RESULTS";
+export const SET_CURRENT_CITY = "HOME_PAGE@SET_CURRENT_CITY";
 
 export const getCurrentLocationWeather = () => {
     return async (dispatch) => {
@@ -29,14 +37,38 @@ export const getCurrentLocationWeather = () => {
 export const getWeeklyForecast = (cityKey) => {
     return async (dispatch) => {
         try {
+
+            // TODO: remove dispatch and return after done with mock data
+            dispatch({type: SAVE_WEEKLY_FORECAST, payload: weeklyForecastObject.data})
+            return;
+
+            if (!cityKey) {
+                alert('No city key!!!');
+                return;
+            }
+
             const currentLocationWeather = await axios.get(weeklyForecastEndpoint(cityKey));
-            dispatch({type: SAVE_WEEKLY_FORECAST, payload: currentLocationWeather.data});
+            const {data} = currentLocationWeather;
+            dispatch({type: SAVE_WEEKLY_FORECAST, payload: data});
         } catch (e) {
 
         }
     }
 };
 
-export const fetchWeatherReportAutocomplete = (dispatch) => {
+export const fetchWeatherReportAutocomplete = (keyword) => {
+    return async (dispatch) => {
+        try {
 
+            // TODO: remove dispatch and return after done with mock data
+            dispatch({type: SAVE_AUTOCOMPLETE_RESULTS, payload: autoCompleteResults.data})
+            return;
+
+            const response = await axios.get(autoCompleteSearchEndpoint(keyword));
+            const {data} = response;
+            dispatch({type: SAVE_AUTOCOMPLETE_RESULTS, payload: data})
+        } catch (e) {
+
+        }
+    }
 };
