@@ -5,17 +5,20 @@ import {Grid, Container} from "semantic-ui-react";
 import {connect} from "react-redux";
 import * as actions from '../../store/actions/homePageActions';
 import {SET_CURRENT_CITY} from "../../store/actions/homePageActions";
+import {addLocationToFavorites, removeLocationFromFavorites} from "../../store/actions/favoritesPageActions";
 
 const mapStateToProps = (state) => ({
-    homePage: state.homePage
-
+    homePage: state.homePage,
+    favorites: state.favorites
 });
 
 const mapDispatchToProps = (dispatch) => ({
     getCurrentLocationWeather: () => dispatch(actions.getCurrentLocationWeather()),
     fetchWeatherReportAutocomplete: (keyword) => dispatch(actions.fetchWeatherReportAutocomplete(keyword)),
     getWeeklyForecast: (cityKey) => dispatch(actions.getWeeklyForecast(cityKey)),
-    setCurrentCity: (data) => dispatch({type: SET_CURRENT_CITY, payload: data})
+    setCurrentCity: (data) => dispatch({type: SET_CURRENT_CITY, payload: data}),
+    addToFavorites: (data) => dispatch(addLocationToFavorites(data)),
+    removeFromFavorites: (cityKey) => dispatch(removeLocationFromFavorites(cityKey)),
 });
 
 class Home extends Component {
@@ -38,9 +41,10 @@ class Home extends Component {
         console.log(this.props);
         return (
             <Container>
-                <h3>Home Page</h3>
-                <br/>
-                <MainWeatherContainer {...this.props}/>
+                <Grid>
+                    <MainWeatherContainer {...this.props}/>
+                </Grid>
+
             </Container>
         )
     }

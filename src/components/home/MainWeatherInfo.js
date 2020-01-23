@@ -1,15 +1,22 @@
 import React from 'react';
-import { Image, Header } from "semantic-ui-react";
-import { createWeatherIcon } from "../../assets/createWeatherIcon";
+import {Image, Header} from "semantic-ui-react";
+import {createWeatherIcon} from "../../assets/createWeatherIcon";
 
 
 export default function MainWeatherInfo(props) {
+    const getFirstDayIcon = () => {
+        const {weeklyForecastObject: {DailyForecasts}} = props;
+
+        if (DailyForecasts.length) {
+            return <Image src={createWeatherIcon(DailyForecasts[0].Day.Icon)}/>
+        }
+        return null;
+    };
+
     return (
         <div>
-            {console.log('MainWeatherInfo')}
-            {console.log(props)}
             <Header as="h1">
-                <Image src={createWeatherIcon(props.weatherObject.WeatherIcon)} />
+                {getFirstDayIcon()}
                 <Header.Content>
                     {props.cityName}
                     <Header.Subheader>

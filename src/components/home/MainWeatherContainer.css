@@ -12,5 +12,6 @@
 
 
 .weather-description {
-    color: red;
+    margin-top: 10px;
+    font-size: 20px;
 }

@@ -46,10 +46,20 @@ const homePageReducer = (state = initialState, action) => {
         }
         case 'FETCH_WEATHER_OBJECT':
             return action.payload
-        case 'Add_FAVORITE':
-            return state
-        case 'REMOVE_FAVORITE':
-            return state
+        case 'Add_FAVORITE': {
+            return {
+                ...state,
+                favorite: true
+            }
+        }
+
+        case 'REMOVE_FAVORITE': {
+            return {
+                ...state,
+                favorite: false
+            }
+        }
+
         default:
             return state
 

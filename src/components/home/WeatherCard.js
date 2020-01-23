@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Card, Header, Image, List} from "semantic-ui-react";
 import './WeatherCard.css';
-
+import {createWeatherIcon} from "../../assets/createWeatherIcon";
 
 class WeatherCard extends Component {
 
@@ -9,24 +9,28 @@ class WeatherCard extends Component {
         return (new Date(epochDate * 1000)).toLocaleDateString('en-us', {weekday: 'long'});
     }
 
+    getTempInCelsius(temp) {
+        return ((temp - 32) * 5/9).toFixed(0);
+    }
+
 
     render() {
         return (
-            <Card className="card-item">
+            <Card raised className="card-item">
                 <h2 className="day-title">
                     {this.getDayFromEpochDate(this.props.dayObject.EpochDate)}
                 </h2>
                 <Card.Content>
                     <Header as="h1" icon textAlign="center">
-                        <Image src="https://developer.accuweather.com/sites/default/files/12-s.png"/>
+                        <Image src={createWeatherIcon(this.props.dayObject.Day.Icon)} />
                         <Header.Content>
-                            <List divided horizontal size="medium">
+                            <List divided horizontal size="large">
                                 <List.Item>
-                                    {'15°'}
+                                    {this.getTempInCelsius(this.props.dayObject.Temperature.Maximum.Value) + "°"}
                                 </List.Item>
 
                                 <List.Item>
-                                    {'9°'}
+                                    {this.getTempInCelsius(this.props.dayObject.Temperature.Minimum.Value) + "°"}
                                 </List.Item>
                             </List>
 

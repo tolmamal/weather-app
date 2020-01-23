@@ -4,10 +4,10 @@
 export const ADD_LOCATION_TO_FAVORITES = "FAVORITES_PAGE@ADD_LOCATION_TO_FAVORITES";
 export const REMOVE_LOCATION_FROM_FAVORITES = "FAVORITES_PAGE@REMOVE_LOCATION_FROM_FAVORITES";
 
-export const addLocationToFavorites = (locationData) => {
+export const addLocationToFavorites = (data) => {
     return async (dispatch) => {
         try {
-            dispatch({type: ADD_LOCATION_TO_FAVORITES, payload: locationData});
+            dispatch({type: ADD_LOCATION_TO_FAVORITES, payload: data});
         } catch (e) {
 
         }

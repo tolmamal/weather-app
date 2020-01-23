@@ -5,6 +5,8 @@ import WeatherNavbar from './components/navbar/WeatherNavbar';
 import Favorites from './components/favorites/favorites';
 import './App.css';
 import './assets/style/colors.css';
+import 'semantic-ui-css/semantic.min.css'
+
 
 import { weeklyForecastEndpoint, autoCompleteSearchEndpoint, currentWeatherEndpoint, geoLocationEndpoint } from './assets/AccuWeatherFunctions';
 import { createWeatherObject } from './assets/createWeatherObject';

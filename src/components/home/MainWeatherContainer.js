@@ -1,15 +1,28 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import './MainWeatherContainer.css';
-import { Container, Grid } from "semantic-ui-react";
+import {Container, Grid} from "semantic-ui-react";
 import MainWeatherInfo from './MainWeatherInfo';
 import WeeklyForecastContainer from './WeeklyForecastContainer';
-
+import AddAsFavorite from './AddAsFavorite';
 
 
 class MainWeatherContainer extends Component {
 
+    currentLocationIsInFavorites = () => {
+        const {homePage, favorites} = this.props;
+        const {cityKey} = homePage;
+        const {locations} = favorites;
+
+        // return !!locations.filter(location => cityKey === location.cityKey).length;
+        return !!locations.find(location => cityKey === location.cityKey);
+    };
+
     renderMainContainer() {
-        const {cityName, countryName, weatherObject, weeklyForecastObject} = this.props.homePage;
+        const {homePage} = this.props;
+
+        this.currentLocationIsInFavorites();
+        const {cityName, countryName, weatherObject, weeklyForecastObject, favorite} = this.props.homePage;
         return <Container className="main-weather-container">
             <Grid stackable className="main-weather-grid">
                 <Grid.Row verticalAlign="middle" columns={3}>
@@ -18,6 +31,7 @@ class MainWeatherContainer extends Component {
                             cityName={cityName}
                             countryName={countryName}
                             weatherObject={weatherObject[0]}
+                            weeklyForecastObject={weeklyForecastObject}
                             /* also need to pass temperature units */
 
                         />
@@ -25,26 +39,27 @@ class MainWeatherContainer extends Component {
 
                     <Grid.Column>
                         <h2 className="weather-description">
-                            {/*{this.props.weatherObject[0].WeatherText}*/}
                             {weeklyForecastObject.Headline.Text}
 
                         </h2>
                     </Grid.Column>
 
                     <Grid.Column>
-                        {'Favorites - hurtIcon'}
-
+                        <AddAsFavorite
+                            addToFavorites={() => this.props.addToFavorites(homePage)}
+                            removeFromFavorites={() => this.props.removeFromFavorites(homePage.cityKey)}
+                            isMarkedAsFavorite={this.currentLocationIsInFavorites()}
+                        />
                     </Grid.Column>
                 </Grid.Row>
 
                 <Grid.Row>
-                    <WeeklyForecastContainer weatherObject={weeklyForecastObject} />
+                    <WeeklyForecastContainer weatherObject={weeklyForecastObject}/>
                 </Grid.Row>
 
             </Grid>
         </Container>
     }
-
 
 
     render() {
@@ -54,7 +69,6 @@ class MainWeatherContainer extends Component {
                     {this.renderMainContainer()}
 
 
-
                 </Grid.Column>
             </Grid.Row>
         )
@@ -62,5 +76,11 @@ class MainWeatherContainer extends Component {
 
 }
 
+MainWeatherContainer.propTypes = {
+    addToFavorites: PropTypes.func,
+    homePage: PropTypes.object,
+    removeFromFavorites: PropTypes.func
+};
 
 export default MainWeatherContainer;
+
