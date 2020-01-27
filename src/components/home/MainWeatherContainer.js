@@ -22,7 +22,7 @@ class MainWeatherContainer extends Component {
         const {homePage} = this.props;
 
         this.currentLocationIsInFavorites();
-        const {cityName, countryName, weatherObject, weeklyForecastObject, favorite} = this.props.homePage;
+        const {cityName, countryName, weatherObject, weeklyForecastObject} = this.props.homePage;
         return <Container className="main-weather-container">
             <Grid stackable className="main-weather-grid">
                 <Grid.Row verticalAlign="middle" columns={3}>

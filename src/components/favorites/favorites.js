@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import './favorites.css';
+import FavoritesContainer from './FavoritesContainer';
 
 
 class Favorites extends Component {
     render() {
         return (
             <div>
-                <h1>FAVORITES PAGE</h1>
+                <FavoritesContainer />
             </div>
         )
     }

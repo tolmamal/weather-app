@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Home.css';
 import MainWeatherContainer from './MainWeatherContainer';
+import SearchBar from './SearchBar';
 import {Grid, Container} from "semantic-ui-react";
 import {connect} from "react-redux";
 import * as actions from '../../store/actions/homePageActions';
@@ -23,7 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Home extends Component {
     componentDidMount() {
-        // this.props.getCurrentLocationWeather();
+        //this.props.getCurrentLocationWeather();
         this.props.getWeeklyForecast();
         this.props.fetchWeatherReportAutocomplete('milano');
         setTimeout(() => {
@@ -43,7 +44,10 @@ class Home extends Component {
             <Container>
                 <Grid>
                     <MainWeatherContainer {...this.props}/>
+                    <SearchBar />
+
                 </Grid>
+
 
             </Container>
         )
