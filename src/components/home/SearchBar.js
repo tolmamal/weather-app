@@ -3,6 +3,8 @@ import {Dropdown, Grid, Container} from "semantic-ui-react";
 import {autoCompleteSearchEndpoint} from "../../assets/AccuWeatherFunctions";
 import {connect} from "react-redux";
 import * as actions from "../../store/actions/homePageActions";
+import MainWeatherContainer from '../home/MainWeatherContainer';
+import {SET_CURRENT_CITY} from "../../store/actions/homePageActions";
 
 
 const mapStateToProps = (state) => ({
@@ -11,26 +13,44 @@ const mapStateToProps = (state) => ({
 
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchWeatherReportAutocomplete: (keyword) => dispatch(actions.fetchWeatherReportAutocomplete(keyword))
+    fetchWeatherReportAutocomplete: (keyword) => dispatch(actions.fetchWeatherReportAutocomplete(keyword)),
+    getWeeklyForecast: (cityKey) => dispatch(actions.getWeeklyForecast(cityKey)),
+    setCurrentCity: (data) => dispatch({type: SET_CURRENT_CITY, payload: data})
 
 });
 
-const mockOptions = [
-    {key: 'Paris', text: 'Paris', value: 'Paris'},
-    {key: 'Milano', text: 'Milano', value: 'Milano'}
+const mapAutocompleteOption = (option) => ({...option, key:option.Key, value: option.Key, text: option.LocalizedName + ", " + option.Country.LocalizedName});
 
-];
+
 
 class SearchBar extends Component {
 
 
+    onCitySelection = (city) => {
+        this.props.setCurrentCity(city);
+        this.props.getWeeklyForecast(city.Key);
+
+
+    };
+
+    // TODO: take care in case of an error
+    handleChange = (e, {value}) => {
+        let result = this.props.homePage.autocompleteResults.filter(res => {
+            return res.Key === value;
+        });
+
+        this.onCitySelection(this.props.homePage.autocompleteResults[0]);
+        return <MainWeatherContainer {...this.props}/>
+
+
+
+
+    };
+
+    // TODO: take care in case of an error
     handleChangeOnSearch = (e, {searchQuery}) => {
         if (searchQuery !== "") {
-            console.log("###################");
-            console.log("searchQuery: " + searchQuery);
-            let autoCompleteEndpoint = autoCompleteSearchEndpoint(searchQuery);
-            this.props.fetchWeatherReportAutocomplete(autoCompleteEndpoint);
-            console.log(this.props);
+            this.props.fetchWeatherReportAutocomplete(searchQuery);
 
         }
         else
@@ -43,14 +63,16 @@ class SearchBar extends Component {
     renderDropdown = () => {
         return <Dropdown
             button
-            className='search-icon'
+            className='icon teal big'
+            selectOnNavigation={false}
             floating
             labeled
             icon='world'
-            options={mockOptions}
+            options={this.props.homePage.autocompleteResults.map(mapAutocompleteOption)}
             search
             text='Search a city'
             onSearchChange={this.handleChangeOnSearch}
+            onChange={this.handleChange}
 
 
 

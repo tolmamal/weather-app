@@ -24,18 +24,11 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Home extends Component {
     componentDidMount() {
-        //this.props.getCurrentLocationWeather();
-        this.props.getWeeklyForecast();
-        this.props.fetchWeatherReportAutocomplete('milano');
-        setTimeout(() => {
-            this.onCitySelection(this.props.homePage.autocompleteResults[5]);
-        }, 100);
+        this.props.getCurrentLocationWeather();
+
     }
 
-    onCitySelection = (city) => {
-        this.props.setCurrentCity(city);
-        this.props.getWeeklyForecast(city.Key);
-    };
+
 
     render() {
         const {homePage} = this.props;

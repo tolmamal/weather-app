@@ -36,6 +36,8 @@ const homePageReducer = (state = initialState, action) => {
         }
         case SET_CURRENT_CITY: {
             const {payload} = action;
+            console.log("SET_CURRENT_CITY");
+            console.log("payload = " + payload);
 
             return {
                 ...state,

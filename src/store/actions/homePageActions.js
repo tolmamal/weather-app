@@ -27,6 +27,7 @@ export const getCurrentLocationWeather = () => {
             const {data} = geoLocationResponse;
             const currentLocation = await axios.get(geoLocationEndpoint(data.latitude, data.longitude));
             const {Key} = currentLocation.data;
+            dispatch({type: SET_CURRENT_CITY, payload: currentLocation.data});
             dispatch(getWeeklyForecast(Key));
         } catch (e) {
 
@@ -34,18 +35,19 @@ export const getCurrentLocationWeather = () => {
     }
 };
 
+// TODO: take care if there is NO city key
 export const getWeeklyForecast = (cityKey) => {
     return async (dispatch) => {
         try {
 
             // TODO: remove dispatch and return after done with mock data
-            dispatch({type: SAVE_WEEKLY_FORECAST, payload: weeklyForecastObject.data})
-            return;
+            // dispatch({type: SAVE_WEEKLY_FORECAST, payload: weeklyForecastObject.data})
+            // return;
 
-            if (!cityKey) {
-                alert('No city key!!!');
-                return;
-            }
+            // if (!cityKey) {
+            //     alert('No city key!!!');
+            //     return;
+            // }
 
             const currentLocationWeather = await axios.get(weeklyForecastEndpoint(cityKey));
             const {data} = currentLocationWeather;
@@ -61,8 +63,8 @@ export const fetchWeatherReportAutocomplete = (keyword) => {
         try {
 
             // TODO: remove dispatch and return after done with mock data
-            dispatch({type: SAVE_AUTOCOMPLETE_RESULTS, payload: autoCompleteResults.data})
-            return;
+            // dispatch({type: SAVE_AUTOCOMPLETE_RESULTS, payload: autoCompleteResults.data})
+            // return;
 
             const response = await axios.get(autoCompleteSearchEndpoint(keyword));
             const {data} = response;

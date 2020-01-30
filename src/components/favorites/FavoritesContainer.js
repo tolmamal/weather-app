@@ -11,14 +11,15 @@ const mapStateToProps = (state) => ({
 
 class FavoritesContainer extends Component {
 
-    getData = () => {
+
+    getDataByIndex = (index) => {
         const {locations} = this.props.favorites;
         if (locations.length !== 0)
         {
-            const {cityKey, cityName, countryName} = locations[0];
-            const {Text} = locations[0].weeklyForecastObject.Headline;
-            const {Value} = locations[0].weeklyForecastObject.DailyForecasts[0].Temperature.Maximum;
-            const {Icon} = locations[0].weeklyForecastObject.DailyForecasts[0].Day;
+            const {cityKey, cityName, countryName} = locations[index];
+            const {Text} = locations[index].weeklyForecastObject.Headline;
+            const {Value} = locations[index].weeklyForecastObject.DailyForecasts[0].Temperature.Maximum;
+            const {Icon} = locations[index].weeklyForecastObject.DailyForecasts[0].Day;
             return {
                 cityKey: cityKey,
                 cityName: cityName,
@@ -28,9 +29,8 @@ class FavoritesContainer extends Component {
                 currentIcon: Icon
             }
         }
+
     };
-
-
 
     render() {
 
@@ -38,9 +38,9 @@ class FavoritesContainer extends Component {
             <Container>
                 {this.props.favorites.locations.length !== 0 ?
                     <Card.Group itemsPerRow={this.props.favorites.locations.length}>
-                        {this.props.favorites.locations.map(fav =>
+                        {this.props.favorites.locations.map((fav, index) =>
                             <FavoriteCard
-                                data={this.getData()}
+                                data={this.getDataByIndex(index)}
 
                             />
 
