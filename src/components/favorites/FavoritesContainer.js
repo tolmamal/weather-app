@@ -3,11 +3,19 @@ import {Container, Card} from "semantic-ui-react";
 import FavoriteCard from './FavoriteCard';
 import EmptyFavorites from './EmptyFavorites';
 import {connect} from "react-redux";
+import * as actions from "../../store/actions/homePageActions";
+import {SET_CURRENT_CITY} from "../../store/actions/homePageActions";
+import {addLocationToFavorites, removeLocationFromFavorites} from "../../store/actions/favoritesPageActions";
 
 const mapStateToProps = (state) => ({
     favorites: state.favorites
-
 });
+
+const mapDispatchToProps = (dispatch) => ({
+    addToFavorites: (data) => dispatch(addLocationToFavorites(data)),
+    removeFromFavorites: (cityKey) => dispatch(removeLocationFromFavorites(cityKey))
+});
+
 
 class FavoritesContainer extends Component {
 
@@ -41,9 +49,8 @@ class FavoritesContainer extends Component {
                         {this.props.favorites.locations.map((fav, index) =>
                             <FavoriteCard
                                 data={this.getDataByIndex(index)}
-
+                                removeFromFavorites={this.props.removeFromFavorites}
                             />
-
                         )
 
                         }
@@ -61,4 +68,4 @@ class FavoritesContainer extends Component {
 
 }
 
-export default connect(mapStateToProps, null)(FavoritesContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritesContainer);

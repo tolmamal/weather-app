@@ -1,7 +1,21 @@
 .navbar-container {
     padding: 20px 0 20px 0;
     margin-bottom: 30px;
-    /*background: var(--blue);*/
+}
+
+.navbar-container .main-navbar {
+    margin-left: 80px;
+}
+
+.navbar-container .nav-elements {
+    position: absolute;
+    right: 300px;
+}
+
+.navbar-title {
+    font-family: 'Anton', sans-serif;
+    font-weight: normal;
+
 }
 
 
@@ -19,5 +33,5 @@
 }
 
 .active:hover {
-    color: blueviolet;
+    color: #00b5ad;
 }

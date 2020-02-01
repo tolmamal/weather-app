@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-image: url("./clouds.jpg");
+  background-repeat: repeat-x;
+  height: 100vh;
+
 
 }
 

@@ -6,7 +6,7 @@ import Favorites from './components/favorites/favorites';
 import './App.css';
 import './assets/style/colors.css';
 import 'semantic-ui-css/semantic.min.css'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { weeklyForecastEndpoint, autoCompleteSearchEndpoint, currentWeatherEndpoint, geoLocationEndpoint } from './assets/AccuWeatherFunctions';
 import { createWeatherObject } from './assets/createWeatherObject';
