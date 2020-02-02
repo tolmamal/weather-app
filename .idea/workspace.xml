@@ -8,11 +8,6 @@
       <change beforePath="$PROJECT_DIR$/../herolo-weather-app/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../herolo-weather-app/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../herolo-weather-app/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/AccuWeatherFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/AccuWeatherFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/favorites/FavoriteCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/favorites/FavoriteCard.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,6 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
@@ -56,6 +52,9 @@
         </entry>
       </file>
     </leaf>
+=======
+    <leaf />
+>>>>>>> 3251f611e33a92fd896c879af9646b68b13b49a8
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -139,18 +138,19 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="width" value="1934" />
-    <option name="height" value="1031" />
+    <option name="x" value="-12" />
+    <option name="width" value="1935" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -167,7 +167,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,6 +238,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="176834000" />
   </component>
   <component name="ToolWindowManager">
@@ -246,6 +246,14 @@
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18051118" />
+=======
+    <option name="totallyTimeSpent" value="176926000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="0" width="1290" height="688" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18036711" />
+>>>>>>> 3251f611e33a92fd896c879af9646b68b13b49a8
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -257,7 +265,11 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.46666667" />
+=======
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.46582735" />
+>>>>>>> 3251f611e33a92fd896c879af9646b68b13b49a8
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -351,9 +363,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/home/SearchBar.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/home/SearchBar.css" />
     <entry file="file://$PROJECT_DIR$/src/components/home/WeatherCard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
