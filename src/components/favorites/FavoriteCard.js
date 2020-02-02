@@ -15,7 +15,6 @@ class FavoriteCard extends Component {
 
 
 
-
     handleClick = (e) => {
         Swal.fire({
             title: 'Are you sure?',
