@@ -2,12 +2,16 @@ import React, {Component} from 'react';
 import {Card, Image, Header, Button} from "semantic-ui-react";
 import {createWeatherIcon} from "../../assets/createWeatherIcon";
 import Swal from 'sweetalert2';
+import MainWeatherContainer from '../home/MainWeatherContainer';
 
 class FavoriteCard extends Component {
 
     getTempInCelsius(temp) {
         return ((temp - 32) * 5/9).toFixed(0);
     }
+
+
+
 
 
 
@@ -32,7 +36,7 @@ class FavoriteCard extends Component {
 
 
     render() {
-        const {cityKey, cityName, countryName, weatherText, currentTemp, currentIcon} = this.props.data;
+        const {cityName, weatherText, currentTemp, currentIcon} = this.props.data;
 
         return (
             <Card>

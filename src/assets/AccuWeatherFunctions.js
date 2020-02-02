@@ -3,12 +3,12 @@ const key = "fns5ztuenRn2SvGhg8pGMech1jWCWTia";
 
 
 export const weeklyForecastEndpoint = (cityKey) => {
-    return "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + cityKey + "?apikey=" + key;
+    return "https://dataservice.accuweather.com/forecasts/v1/daily/5day/" + cityKey + "?apikey=" + key;
 };
 
 
 export const autoCompleteSearchEndpoint = (q) => {
-    return "http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=" + key + "&q=" + q;
+    return "https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=" + key + "&q=" + q;
 
 };
 
