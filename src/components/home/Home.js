@@ -36,7 +36,6 @@ class Home extends Component {
         return (
             <Container>
                 <Grid>
-                    <h1>Tal Malka</h1>
                     <MainWeatherContainer {...this.props}/>
                     <SearchBar />
 
