@@ -10,6 +10,13 @@ class FavoriteCard extends Component {
         return ((temp - 32) * 5/9).toFixed(0);
     }
 
+    handleInfo = (e) => {
+        console.log("handleInfo");
+        return <MainWeatherContainer />
+
+
+    };
+
 
     handleClick = (e) => {
         Swal.fire({
@@ -55,7 +62,7 @@ class FavoriteCard extends Component {
                 <Card.Content extra>
 
                     <div className="ui two buttons">
-                        <Button basic color='green'>
+                        <Button onClick={this.handleInfo} basic color='green'>
                             INFO
                         </Button>
                         <Button negative onClick={this.handleClick} basic color='red'>

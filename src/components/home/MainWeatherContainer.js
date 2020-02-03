@@ -20,6 +20,8 @@ class MainWeatherContainer extends Component {
 
     renderMainContainer() {
         const {homePage} = this.props;
+        console.log("renderMainContainer");
+        console.log(this.props);
 
         this.currentLocationIsInFavorites();
         const {cityName, countryName, weatherObject, weeklyForecastObject} = this.props.homePage;
