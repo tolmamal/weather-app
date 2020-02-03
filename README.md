@@ -1,12 +1,11 @@
-Weather App
+#### **Weather App**
 
 ## Overview
 
 A simple, responsive web app in react that shows weather forecast of some city.
 Search city function is also available, favorites cities page as well.
 
-### `IMPORTANT!`
-Please notice that Accuweather API has only 50 allowed calls per day.
+**IMPORTANT:** Please notice that Accuweather API has only 50 allowed calls per day.
 
 
 
