@@ -36,7 +36,7 @@ State management includes:
 
 
 ## URL ##
-You can visit the website here [a link](https://flamboyant-leavitt-b6c856.netlify.com)
+You can visit the website here [link](https://flamboyant-leavitt-b6c856.netlify.com)
 
 
 
