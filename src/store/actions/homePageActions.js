@@ -74,3 +74,13 @@ export const fetchWeatherReportAutocomplete = (keyword) => {
         }
     }
 };
+
+
+export const locationIsInFavorites = (cityKey) => {
+    return (dispatch, getState) => {
+        const {favorites: {locations}} = getState();
+
+        // return !!locations.filter(location => cityKey === location.cityKey).length;
+        return !!locations.find(location => cityKey === location.cityKey);
+    }
+};

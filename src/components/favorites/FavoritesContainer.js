@@ -6,14 +6,17 @@ import {connect} from "react-redux";
 import * as actions from "../../store/actions/homePageActions";
 import {SET_CURRENT_CITY} from "../../store/actions/homePageActions";
 import {addLocationToFavorites, removeLocationFromFavorites} from "../../store/actions/favoritesPageActions";
+import {locationIsInFavorites} from "../../store/actions/homePageActions";
 
 const mapStateToProps = (state) => ({
+    home: state.home,
     favorites: state.favorites
 });
 
 const mapDispatchToProps = (dispatch) => ({
     addToFavorites: (data) => dispatch(addLocationToFavorites(data)),
-    removeFromFavorites: (cityKey) => dispatch(removeLocationFromFavorites(cityKey))
+    removeFromFavorites: (cityKey) => dispatch(removeLocationFromFavorites(cityKey)),
+    locationIsInFavorites: (cityKey) => dispatch(locationIsInFavorites(cityKey))
 });
 
 
@@ -34,7 +37,8 @@ class FavoritesContainer extends Component {
                 countryName: countryName,
                 weatherText: Text,
                 currentTemp: Value,
-                currentIcon: Icon
+                currentIcon: Icon,
+                location: locations[index]
             }
         }
 
@@ -48,8 +52,10 @@ class FavoritesContainer extends Component {
                     <Card.Group itemsPerRow={this.props.favorites.locations.length}>
                         {this.props.favorites.locations.map((fav, index) =>
                             <FavoriteCard
+                                key={index}
                                 data={this.getDataByIndex(index)}
                                 removeFromFavorites={this.props.removeFromFavorites}
+                                locationIsInFavorites={this.props.locationIsInFavorites}
                             />
                         )
 

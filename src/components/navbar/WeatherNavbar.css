@@ -32,6 +32,8 @@
     color: black;
 }
 
-.active:hover {
+.nav-elements .active:hover {
     color: #00b5ad;
 }
+
+

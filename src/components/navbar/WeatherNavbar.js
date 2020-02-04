@@ -15,7 +15,7 @@ class WeatherNavbar extends Component {
                 <Navbar collapseOnSelect expand="lg" bg="transparent" variant="light" className="main-navbar">
                     <Navbar.Brand href="/">
                         <Header as="h1">
-                            <Icon name="cloud" size="big" color="grey"/>
+                            <Icon name="sun outline" size="big" color="yellow"/>
                             <Header.Content className="navbar-title">
                                 Weather App
                             </Header.Content>

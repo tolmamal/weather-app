@@ -29,8 +29,6 @@ class SearchBar extends Component {
     onCitySelection = (city) => {
         this.props.setCurrentCity(city);
         this.props.getWeeklyForecast(city.Key);
-
-
     };
 
     // TODO: take care in case of an error
@@ -40,11 +38,7 @@ class SearchBar extends Component {
         });
 
         this.onCitySelection(this.props.homePage.autocompleteResults[0]);
-        return <MainWeatherContainer {...this.props}/>
-
-
-
-
+        // return <MainWeatherContainer {...this.props}/>
     };
 
     // TODO: take care in case of an error
@@ -73,9 +67,6 @@ class SearchBar extends Component {
             text='Search a city'
             onSearchChange={this.handleChangeOnSearch}
             onChange={this.handleChange}
-
-
-
         />
 
     };

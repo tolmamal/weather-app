@@ -9,22 +9,22 @@ import AddAsFavorite from './AddAsFavorite';
 
 class MainWeatherContainer extends Component {
 
-    currentLocationIsInFavorites = () => {
-        const {homePage, favorites} = this.props;
-        const {cityKey} = homePage;
-        const {locations} = favorites;
-
-        // return !!locations.filter(location => cityKey === location.cityKey).length;
-        return !!locations.find(location => cityKey === location.cityKey);
-    };
+    // currentLocationIsInFavorites = () => {
+    //     const {homePage, favorites} = this.props;
+    //     console.log(this.props);
+    //     const {cityKey} = homePage;
+    //     const {locations} = favorites;
+    //
+    //     // return !!locations.filter(location => cityKey === location.cityKey).length;
+    //     return !!locations.find(location => cityKey === location.cityKey);
+    // };
 
     renderMainContainer() {
-        const {homePage} = this.props;
+        const {location} = this.props;
         console.log("renderMainContainer");
         console.log(this.props);
 
-        this.currentLocationIsInFavorites();
-        const {cityName, countryName, weatherObject, weeklyForecastObject} = this.props.homePage;
+        const {cityName, countryName, weatherObject, weeklyForecastObject} = this.props.location;
         return <Container className="main-weather-container">
             <Grid stackable className="main-weather-grid">
                 <Grid.Row verticalAlign="middle" columns={3}>
@@ -42,15 +42,13 @@ class MainWeatherContainer extends Component {
                     <Grid.Column>
                         <h2 className="weather-description">
                             {weeklyForecastObject.Headline.Text}
-
                         </h2>
                     </Grid.Column>
-
                     <Grid.Column>
                         <AddAsFavorite
-                            addToFavorites={() => this.props.addToFavorites(homePage)}
-                            removeFromFavorites={() => this.props.removeFromFavorites(homePage.cityKey)}
-                            isMarkedAsFavorite={this.currentLocationIsInFavorites()}
+                            addToFavorites={() => this.props.addToFavorites(location)}
+                            removeFromFavorites={() => this.props.removeFromFavorites(location.cityKey)}
+                            isMarkedAsFavorite={this.props.locationIsInFavorites(location.cityKey)}
                         />
                     </Grid.Column>
                 </Grid.Row>
@@ -69,8 +67,6 @@ class MainWeatherContainer extends Component {
             <Grid.Row>
                 <Grid.Column className="main-weather-column">
                     {this.renderMainContainer()}
-
-
                 </Grid.Column>
             </Grid.Row>
         )
@@ -80,7 +76,7 @@ class MainWeatherContainer extends Component {
 
 MainWeatherContainer.propTypes = {
     addToFavorites: PropTypes.func,
-    homePage: PropTypes.object,
+    location: PropTypes.object,
     removeFromFavorites: PropTypes.func
 };
 
