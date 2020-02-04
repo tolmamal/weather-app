@@ -8,15 +8,10 @@ import './assets/style/colors.css';
 import 'semantic-ui-css/semantic.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { weeklyForecastEndpoint, autoCompleteSearchEndpoint, currentWeatherEndpoint, geoLocationEndpoint } from './assets/AccuWeatherFunctions';
-import { createWeatherObject } from './assets/createWeatherObject';
-
-/* STORE */
-
-
 
 /* Stylesheets */
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../node_modules/animate.css/animate.css'
 
 function AppRouter() {
     return (

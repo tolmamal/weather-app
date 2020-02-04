@@ -17,6 +17,7 @@ class AddAsFavorite extends Component {
                             size="huge"
                             color={isMarkedAsFavorite ? 'red' : 'white'}
                             icon="heart outline"
+                            // icon={isMarkedAsFavorite ? 'heart' : 'heart outline'}
                         />
                     }
                 />

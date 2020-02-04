@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import MainWeatherContainer from '../home/MainWeatherContainer';
 import "./FavoriteCard.css";
 
+
+
 class FavoriteCard extends Component {
 
     constructor(props) {
@@ -60,7 +62,7 @@ class FavoriteCard extends Component {
         };
 
         return (
-            <Card>
+            <Card className="animated fadeInDown delay-1s">
                 <Card.Header>
                     <Header as="h2" style={{marginTop: 10}}>
                         {cityName}
@@ -71,7 +73,7 @@ class FavoriteCard extends Component {
                     <Header as="h3" style={{marginBottom: 10, marginTop: 0}}>
                         {this.getTempInCelsius(currentTemp) + "°"}
                     </Header>
-                    <Image src={createWeatherIcon(currentIcon)} size="small"/>
+                    <Image src={createWeatherIcon(currentIcon)} centered="true" size="small"/>
                 </Card.Description>
                 <Card.Content>
                     <Card.Header>
@@ -84,12 +86,11 @@ class FavoriteCard extends Component {
                         <Button basic color='green' onClick={this.onButtonInfo}>
                             INFO
                         </Button>
-                        {
-                            this.state.ifInfo ?
+
                                 <Modal className="info-modal"
                                        open={this.state.ifInfo}
                                        centered={true}
-                                       width="1145"
+                                       style={{width:'auto'}}
                                        onClose={() => this.setState({ifInfo: false})}>
                                     <Modal.Content>
                                     <MainWeatherContainer
@@ -100,9 +101,8 @@ class FavoriteCard extends Component {
                                     />
                                     </Modal.Content>
                                 </Modal>
-                                :
-                                null
-                        }
+
+
 
                         <Button onClick={this.handleClick} basic color='red'>
                             DELETE

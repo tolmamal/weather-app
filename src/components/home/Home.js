@@ -9,6 +9,7 @@ import {SET_CURRENT_CITY} from "../../store/actions/homePageActions";
 import {addLocationToFavorites, removeLocationFromFavorites} from "../../store/actions/favoritesPageActions";
 import {locationIsInFavorites} from "../../store/actions/homePageActions";
 
+
 const mapStateToProps = (state) => ({
     homePage: state.homePage,
     favorites: state.favorites
@@ -27,7 +28,10 @@ const mapDispatchToProps = (dispatch) => ({
 class Home extends Component {
     componentDidMount() {
         this.props.getCurrentLocationWeather();
+
     }
+
+
 
     render() {
         const {homePage} = this.props;
